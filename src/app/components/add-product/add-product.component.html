@@ -1,0 +1,27 @@
+<div class="sMain">
+    <div class="covidDetail">
+        <h1>Country Covid Tracker</h1>
+        <table>
+            <tr class="firstTr">
+                <td>S NO.</td>
+                <td>Country</td>
+                <td>New Confirmed</td>
+                <td>Total Confirmed</td>
+                <td>New Deaths</td>
+                <td>Total Deaths</td>
+                <td>New Recovered</td>
+                <td>Total Recovered</td>
+            </tr>
+            <tr (click)="countryDetail(country)" [class.even]="e" [class.odd]="!e" *ngFor="let country of fetchData.statewise; index as i; even as e">
+                <td>{{i+1}}</td>
+                <td>{{country.state}}</td>
+                <td>{{country.active}}</td>
+                <td>{{country.confirmed}}</td>
+                <td>{{country.deaths}}</td>
+                <td>{{country.deltaconfirmed}}</td>
+                <td>{{country.deltadeaths}}</td>
+                <td>{{country.deltarecovered}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

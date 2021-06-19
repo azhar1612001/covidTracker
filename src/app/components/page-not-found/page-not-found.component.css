@@ -1,0 +1,28 @@
+.pageNotFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    padding: 10px;
+}
+.pageNotFound h1{
+    font-family: 'Pangolin', cursive !important;
+    padding-bottom: 20px;
+    text-shadow: 1px 1px 10px;
+}
+.pageNotFound h2{
+    font-family: 'Dancing Script', cursive !important;
+    color: #25D366;
+    text-shadow: 1px 1px 5px #000;
+}
+.red{
+    color: #cd201f;
+}
+.blue{
+    color: #3b5999;
+    cursor: pointer;
+}
+.blue:hover{
+    border-bottom: 2px solid;
+}

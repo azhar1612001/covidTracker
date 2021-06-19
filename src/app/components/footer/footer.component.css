@@ -1,0 +1,52 @@
+footer{
+    color: #fff;
+    background: hsla(180,51.4%,51.6%,1);
+}
+.fMain{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.fMain h1{
+    padding: 10px;
+    font-family: 'Pangolin', cursive !important;
+}
+.fMain h1 a{
+    text-decoration: none;
+}
+.fMain h2{
+    padding: 10px;
+    font-family: 'Dancing Script', cursive !important;
+}
+.fitem2{
+    display: flex;
+    justify-content: space-around;
+}
+.fMenu{
+    margin: 0 20px;
+    padding: 0 20px;
+}
+.fMenu div{
+    margin: 10px;
+}
+.fMenu a{
+    text-decoration: none;
+    color: #fff;
+}
+.fMenu a:hover{
+    color: #3b5999;
+}
+.flast h3{
+    text-align: center;
+    padding: 20px;
+    background: #076767;
+}
+@media (max-width: 600px){
+    .fMain{
+        display: block;
+    }
+    .fMenu{
+        margin: 0;
+        padding: 0;
+    }
+}

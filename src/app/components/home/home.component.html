@@ -1,0 +1,66 @@
+<div class="hMain">
+    <div class="hTop">
+        <div>
+            <img src="https://images.unsplash.com/photo-1520170350707-b2da59970118?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA3fHxwcm9kdWN0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
+                alt="image not found" />
+        </div>
+        <div class="hContent">
+            <h1>{{ "Welcome to " | uppercase }}ARTeam</h1>
+            <h3>We are happy to see you all there and we hope you will enjoy there so, don't stop and keep visiting</h3>
+        </div>
+    </div>
+    <div class="aboutus m-10 pd-10">
+        <h1 class="pd-10 m-10">{{ "about us" | uppercase }}</h1>
+        <div class="about-content m-10 pd-10">
+            <div>
+                <img src="https://images.unsplash.com/photo-1513116476489-7635e79feb27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=684&q=80"
+                    alt="image not found">
+            </div>
+            <div class="aContent m-10 pd-10">
+                <h2 class="pd-10 m-10">welcome to ARTeam</h2>
+                <p class="pd-10 m-10">We are curious to tell you all guys about us and also we wish you come to join us and you explore all
+                    the things which you want and we hope we can build a great relation together.</p>
+                <div>
+                    <div class="ab-det m-10 pd-10">
+                        <h3>Location:</h3>
+                        <p>New Delhi,India</p>
+                    </div>
+                    <div class="ab-det m-10 pd-10">
+                        <h3>Phone Number:</h3>
+                        <p>+918700989777</p>
+                    </div>
+                    <div class="ab-det m-10 pd-10">
+                        <h3>Email:</h3>
+                        <p>azhar1612001@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="m-10 pd-10">
+            <h1 class="pd-10 m-10">Contact Us</h1>
+            <form #contactData="ngForm" (ngSubmit)="sendContact()" class="m-10 pd-10">
+                <div class="form-item">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" #name="ngModel" id="name" placeholder="Enter your name" required [(ngModel)]="contactModel.name">
+                </div>
+                <div class="form-item">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" #email="ngModel" id="email" placeholder="Enter your email" required [(ngModel)]="contactModel.email">
+                </div>
+                <div class="form-item">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" name="phone" #phone="ngModel" id="phone" placeholder="Enter your phone number" required [(ngModel)]="contactModel.phone">
+                </div>
+                <div class="form-item">
+                    <label for="message">Message:</label>
+                    <textarea name="message" #message="ngModel" id="message" cols="30" rows="10" placeholder="Enter your message" required [(ngModel)]="contactModel.message"></textarea>
+                </div>
+                <div [style.text-align]="'center'" class="form-item">
+                    <button class="contact-btn" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.covidDetail{
+    text-align: center;
+}
+.covidDetail table{
+    display: inline-block;
+}
+.covidDetail h1{
+    padding: 10px;
+}
+.firstTr{
+    border: 2px solid violet;
+    background: #000;
+    color: #fff;
+    font-size: 25px;
+}
+.even{
+    background: rgba(71,82,93,.8);
+    color: #fff;
+    font-size: 20px;
+}
+.odd{
+    background: teal;
+    color: #fff;
+    font-size: 20px;
+}
+@media (max-width: 1000px){
+    .firstTr,.odd,.even{
+        font-size: 15px;
+    }
+}
+@media (max-width: 550px){
+    .firstTr,.odd,.even{
+        font-size: 12px;
+    }
+}
+@media (max-width: 450px){
+    .firstTr,.odd,.even{
+        font-size: 10px;
+    }
+}
+@media (max-width: 350px){
+    .firstTr,.odd,.even{
+        font-size: 8px;
+    }
+}
