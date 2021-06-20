@@ -1,0 +1,50 @@
+.members{
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background: darkblue;
+    color: #fff;
+    font-weight: bolder;
+}
+.memDet{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.memDet div{
+    margin: 10px;
+    padding: 10px;
+    background: #47525d;
+    border-radius: 5px;
+    color: #fff;
+}
+.memDet1,.memDet12,.memDet3{
+    margin: 5px;
+    padding: 5px;
+}
+.memDet span{
+    color: #00aced;
+}
+@media (max-width: 1200px){
+    .memDet{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 900px){
+    .memDet{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 600px){
+    .memDet{
+        grid-template-columns: 1fr;
+    }
+}

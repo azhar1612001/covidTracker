@@ -12,7 +12,7 @@
                 <td>New Recovered</td>
                 <td>Total Recovered</td>
             </tr>
-            <tr (click)="countryDetail(country)" [class.even]="e" [class.odd]="!e" *ngFor="let country of fetchData.Countries; index as i; even as e">
+            <tr [class.even]="e" [class.odd]="!e" *ngFor="let country of fetchData.Countries; index as i; even as e">
                 <td>{{i+1}}</td>
                 <td>{{country.Country}}</td>
                 <td>{{country.NewConfirmed}}</td>

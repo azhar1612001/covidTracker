@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
+import {
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-add-member',
@@ -7,9 +17,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMemberComponent implements OnInit {
 
-  constructor() { }
+  @Input() public parentData=false;
+
+  @Output() public childEvent=new EventEmitter();
+  @Output() public childEventData=new EventEmitter();
+
+  public addMemberData=this.fb.group({
+    name: ['',Validators.required],
+    role: ['',Validators.required],
+    experience: ['',Validators.required]
+  });
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  sendToParent(){
+    this.childEvent.emit(false);
+    this.childEventData.emit(this.addMemberData.value);
+    this.addMemberData=this.fb.group({
+      name: ['',Validators.required],
+      role: ['',Validators.required],
+      experience: ['',Validators.required]
+    });
   }
 
 }

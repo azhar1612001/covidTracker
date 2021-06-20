@@ -13,6 +13,8 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class HomeComponent implements OnInit {
 
+  public mailbtn=true;
+
   public contactModel=new ContactModel("","",123,"");
   // public contactModel={name:"",email:"",phone:"",message:""};
 
@@ -22,8 +24,17 @@ export class HomeComponent implements OnInit {
   }
 
   sendContact(){
+    this.mailbtn=false;
     //console.log(value);
-    this._contact.dataToServer(this.contactModel).subscribe(data=>console.log("success!",data),error=>console.log("get error",error));
+    //window.alert("please wait...");
+    this._contact.dataToServer(this.contactModel).subscribe(data=>{
+      window.alert("Message sent!");
+      this.contactModel=new ContactModel("","",123,"");
+    this.mailbtn=true;
+  },error=>{
+    window.alert("Get Error: "+error.error.error);
+    this.contactModel=new ContactModel("","",123,"");
+    this.mailbtn=true;});
   }
 
 }

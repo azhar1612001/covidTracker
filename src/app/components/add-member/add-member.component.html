@@ -1,1 +1,21 @@
-<p>add-member works!</p>
+<div *ngIf="parentData" class="add-member">
+    <h1>Add Member Form</h1>
+    <form [formGroup]="addMemberData" (onSubmit)="sendToParent()">
+        <div>
+            <label for="name">Name:</label>
+            <input [class.invalid]="addMemberData.get('name').invalid && addMemberData.get('name').touched" formControlName="name" type="text" name="name" placeholder="Enter Name">
+            <small class="text-danger" [class.d-none]="addMemberData.get('name').valid || addMemberData.get('name').untouched">Name is required</small>
+        </div>
+        <div>
+            <label for="role">Role:</label>
+            <input [class.invalid]="addMemberData.get('role').invalid && addMemberData.get('role').touched" formControlName="role" type="text" name="role" placeholder="Enter Role">
+            <small class="text-danger" [class.d-none]="addMemberData.get('role').valid || addMemberData.get('role').untouched">Role is required</small>
+        </div>
+        <div>
+            <label for="experience">Experience:</label>
+            <input [class.invalid]="addMemberData.get('experience').invalid && addMemberData.get('experience').touched" formControlName="experience" type="text" name="experience" placeholder="Enter Experience">
+            <small class="text-danger" [class.d-none]="addMemberData.get('experience').valid || addMemberData.get('experience').untouched">Experience is required</small>
+        </div>
+        <button [class.d-none]="addMemberData.invalid" (click)="sendToParent()">Add Member</button>
+    </form>
+</div>

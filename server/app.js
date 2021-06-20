@@ -11,9 +11,46 @@ app.use(bodyParser.json());
 dotenv.config({ path: "./config.env" });
 const port = process.env.PORT || 8000;
 
-app.post("/",(req,res)=>{
-    console.log(req.body);
-    res.status(200).send("hello from server");
+app.post("/",async (req,res)=>{
+    //console.log(req.body);
+    const { name, email, phone, message } = req.body;
+
+    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+        res.status(401).send({error:"All fields sholud be filled properly and whitespace not allowed"});
+    } else if (phone.length!=10) {
+        res.status(401).send({error:"Phone number should be of length 10"});
+    } else {
+
+        try {
+
+            let transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                    user: process.env.GMAILID,
+                    pass: process.env.GMAILPASS,
+                },
+            });
+
+            let info = await transporter.sendMail({
+                from: process.env.GMAILID,
+                to: `${email} , ${process.env.GMAILID}`,
+                subject: "Visited to ARTeam",
+                text: `
+                name: ${name}
+                email: ${email}
+                phone: ${phone}
+                message: ${message}`,
+            });
+
+            console.log("Message sent: %s", info.messageId);
+            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+            res.status(200).send({message:"Mail sent successfully"});
+
+        } catch (err) {
+            console.log(err);
+            res.status(401).send({ error: "Something went wrong" });
+        }
+    }
 });
 
 /*

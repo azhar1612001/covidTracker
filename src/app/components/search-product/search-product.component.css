@@ -1,0 +1,37 @@
+.search{
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchres{
+    margin: 10px;
+    padding: 10px;
+}
+input{
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+button{
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background: darkblue;
+    color: #fff;
+    font-weight: bolder;
+}
+button:hover{
+    opacity: 0.5;
+}
+.resInfo{
+    display: flex;
+    padding: 10px;
+}
+.resInfo-h{
+    color: darkolivegreen;
+}

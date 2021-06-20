@@ -5,9 +5,6 @@ import {
 } from '@angular/router';
 
 import {
-  AddMemberComponent
-} from './components/add-member/add-member.component';
-import {
   AddProductComponent
 } from './components/add-product/add-product.component';
 import {
@@ -21,9 +18,6 @@ import {
   SearchProductComponent
 } from './components/search-product/search-product.component';
 import {
-  ShowCountryComponent
-} from './components/show-country/show-country.component';
-import {
   ShowProductComponent
 } from './components/show-product/show-product.component';
 
@@ -33,8 +27,6 @@ const routes: Routes = [
   {path: 'searchproduct', component: SearchProductComponent},
   {path: 'addproduct', component: AddProductComponent},
   {path: 'allmembers', component: AllMembersComponent},
-  {path: 'addmember', component: AddMemberComponent},
-  {path: 'detail/:id', component: ShowCountryComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -49,6 +41,5 @@ export const routingComponents = [
   SearchProductComponent, 
   AddProductComponent, 
   AllMembersComponent,
-  AddMemberComponent,
   PageNotFoundComponent
 ];

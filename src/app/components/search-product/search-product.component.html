@@ -1,1 +1,95 @@
-<p>search-product works!</p>
+<div class="search">
+    <div class="searchby">
+        <div *ngIf="visibility" class="searchform">
+            <input type="text" #inputdata name="inputdata" [placeholder]="searEle" required>
+            <button type="submit" (click)="searchClick(inputdata.value)">Search</button>
+        </div>
+        <div *ngIf="initial" class="searchres">
+            <div *ngIf="found; else elseBlock">
+                <div *ngIf="state; else countryBlock">
+                    <h1>Search Result</h1>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">State:</h3>&nbsp;
+                        <h3>{{searchResult.state}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">State Code:</h3>&nbsp;
+                        <h3>{{searchResult.statecode}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">State Notes:</h3>&nbsp;
+                        <h3>{{searchResult.statenotes}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Active Cases:</h3>&nbsp;
+                        <h3>{{searchResult.active}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Confirmed Cases:</h3>&nbsp;
+                        <h3>{{searchResult.confirmed}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Recovered:</h3>&nbsp;
+                        <h3>{{searchResult.recovered}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Deaths:</h3>&nbsp;
+                        <h3>{{searchResult.deaths}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Update Time:</h3>&nbsp;
+                        <h3>{{searchResult.lastupdatedtime}}</h3>
+                    </div>
+                </div>
+                <ng-template #countryBlock>
+                    <h1>Search Result</h1>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Country:</h3>&nbsp;
+                        <h3>{{searchResult.Country}}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">CountryCode:</h3>&nbsp;
+                        <h3>{{searchResult.CountryCode }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Country Slug:</h3>&nbsp;
+                        <h3>{{searchResult.Slug }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">New Confirmed Cases:</h3>&nbsp;
+                        <h3>{{searchResult.NewConfirmed }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Total Confirmed Cases:</h3>&nbsp;
+                        <h3>{{searchResult.TotalConfirmed }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">New Deaths:</h3>&nbsp;
+                        <h3>{{searchResult.NewDeaths }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Total Deaths:</h3>&nbsp;
+                        <h3>{{searchResult.TotalDeaths }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">New Recovered:</h3>&nbsp;
+                        <h3>{{searchResult.NewRecovered }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Total Recovered:</h3>&nbsp;
+                        <h3>{{searchResult.TotalRecovered }}</h3>
+                    </div>
+                    <div class="resInfo">
+                        <h3 class="resInfo-h">Update Date:</h3>&nbsp;
+                        <h3>{{searchResult.Date}}</h3>
+                    </div>
+                </ng-template>
+            </div>
+            <ng-template #elseBlock>
+                <h3 [style.color]="'red'">No data of given input</h3>
+            </ng-template>
+        </div>
+        <button (click)="countryClick()">Search Data of Country</button>
+        <button (click)="stateClick()">Search Data of India State</button>
+    </div>
+</div>

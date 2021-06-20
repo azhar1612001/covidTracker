@@ -1,1 +1,22 @@
-<p>all-members works!</p>
+<div class="members">
+    <app-add-member (childEventData)="addMember($event)" (childEvent)="btnVis=!status=$event" [parentData]="status"></app-add-member>
+    <button *ngIf="btnVis" (click)="changeStatus()">Add Member</button>
+    <div *ngIf="this.allMembers.length===0; else elseBlock">
+        <h3 [style.color]="'#cd201f'">No Members to display</h3>
+    </div>
+    <ng-template #elseBlock>
+        <div class="show-member">
+            <div>
+                <button [style.background]="'#cd201f'" (click)="removeAll()">Remove All</button>
+            </div>
+            <div class="memDet">
+                <div *ngFor="let member of allMembers; index as i">
+                    <h3 class="memDet1"><span>Name: </span>{{member.name}}</h3>
+                    <h3 class="memDet2"><span>Role: </span>{{member.role}}</h3>
+                    <h3 class="memDet3"><span>Experience: </span>{{member.experience}}</h3>
+                    <button [style.background]="'#cd201f'" (click)="removeMember(i)">Remove</button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

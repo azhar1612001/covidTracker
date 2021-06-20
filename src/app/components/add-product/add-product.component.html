@@ -1,26 +1,32 @@
 <div class="sMain">
     <div class="covidDetail">
-        <h1>Country Covid Tracker</h1>
+        <h1>India Covid Tracker</h1>
+        <div class="india">
+            <h1>All Over India Data</h1>
+            <h3><span>Active:</span> {{fetchData.statewise[0].active}}</h3>
+            <h3><span>Confirmed:</span> {{fetchData.statewise[0].confirmed}}</h3>
+            <h3><span>Recovered:</span> {{fetchData.statewise[0].recovered}}</h3>
+            <h3><span>Deaths:</span> {{fetchData.statewise[0].deaths}}</h3>
+            <h3><span>Last Update:</span> {{fetchData.statewise[0].lastupdatedtime}}</h3>
+        </div>
         <table>
             <tr class="firstTr">
                 <td>S NO.</td>
-                <td>Country</td>
-                <td>New Confirmed</td>
-                <td>Total Confirmed</td>
-                <td>New Deaths</td>
-                <td>Total Deaths</td>
-                <td>New Recovered</td>
-                <td>Total Recovered</td>
+                <td>State</td>
+                <td>Active</td>
+                <td>Confirmed</td>
+                <td>Recovered</td>
+                <td>Deaths</td>
+                <td>Last Update</td>
             </tr>
-            <tr (click)="countryDetail(country)" [class.even]="e" [class.odd]="!e" *ngFor="let country of fetchData.statewise; index as i; even as e">
-                <td>{{i+1}}</td>
-                <td>{{country.state}}</td>
-                <td>{{country.active}}</td>
-                <td>{{country.confirmed}}</td>
-                <td>{{country.deaths}}</td>
-                <td>{{country.deltaconfirmed}}</td>
-                <td>{{country.deltadeaths}}</td>
-                <td>{{country.deltarecovered}}</td>
+            <tr [class.even]="e" [class.odd]="!e" *ngFor="let state of fetchData.statewise; first as f ; index as i; even as e">
+                <td *ngIf="!f">{{i}}</td>
+                <td *ngIf="!f">{{state.state}}</td>
+                <td *ngIf="!f">{{state.active}}</td>
+                <td *ngIf="!f">{{state.confirmed}}</td>
+                <td *ngIf="!f">{{state.recovered}}</td>
+                <td *ngIf="!f">{{state.deaths}}</td>
+                <td *ngIf="!f">{{state.lastupdatedtime}}</td>
             </tr>
         </table>
     </div>

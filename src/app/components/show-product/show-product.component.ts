@@ -2,7 +2,6 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AllCovidDataService } from '../../services/all-covid-data.service';
 
@@ -15,16 +14,10 @@ export class ShowProductComponent implements OnInit {
 
   public fetchData=[] as any;
 
-  constructor(private _data: AllCovidDataService,private router: Router) { }
+  constructor(private _data: AllCovidDataService) { }
 
   ngOnInit(): void {
     this._data.sendData().subscribe(data => this.fetchData=data);
-  }
-
-  countryDetail(country: object){
-    console.log(country);
-    console.log(typeof(country));
-    this.router.navigate(['/detail',country]);
   }
 
 }

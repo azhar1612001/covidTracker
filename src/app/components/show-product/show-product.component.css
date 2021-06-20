@@ -12,6 +12,10 @@
     background: #000;
     color: #fff;
     font-size: 25px;
+    font-weight: bolder;
+}
+td{
+    padding: 10px;
 }
 .even{
     background: rgba(71,82,93,.8);
@@ -26,6 +30,9 @@
 @media (max-width: 1000px){
     .firstTr,.odd,.even{
         font-size: 15px;
+    }
+    td{
+        padding: 0;
     }
 }
 @media (max-width: 550px){

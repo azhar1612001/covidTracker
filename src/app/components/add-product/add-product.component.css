@@ -1,5 +1,8 @@
 .covidDetail{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .covidDetail table{
     display: inline-block;
@@ -7,11 +10,33 @@
 .covidDetail h1{
     padding: 10px;
 }
+.india{
+    padding: 10px 100px;
+    text-align: left;
+    box-shadow: 1px 1px 10px;
+    background: darkgoldenrod;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.india h1{
+    color: aquamarine;
+}
+.india h3{
+    padding: 5px;
+}
+.india h3 span{
+    color: rgb(0 0 0);
+}
 .firstTr{
     border: 2px solid violet;
     background: #000;
     color: #fff;
     font-size: 25px;
+    font-weight: bolder;
+}
+td{
+    padding: 10px;
 }
 .even{
     background: rgba(71,82,93,.8);
@@ -31,6 +56,12 @@
 @media (max-width: 550px){
     .firstTr,.odd,.even{
         font-size: 12px;
+    }
+    .india{
+        padding: 10px;
+    }
+    td{
+        padding: 0;
     }
 }
 @media (max-width: 450px){

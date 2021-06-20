@@ -5,26 +5,20 @@
             <div class="sidenav">
                 <ul class="hMenu">
                     <li class="navitem">
-                        <a routerLink="/">Home</a>
+                        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
                     </li>
                     <li class="navitem">
                         <div class="dropdown">
                             <button class="dropbtn">Covid19</button>
                             <div class="dropdown-content">
-                              <a routerLink="/showproduct" routerLinkActive="active">Country Data</a>
-                              <a routerLink="/addproduct" routerLinkActive="active">India Data</a>
-                              <a routerLink="/searchproduct" routerLinkActive="active">Search Data</a>
+                              <a routerLink="/showproduct" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Country Data</a>
+                              <a routerLink="/addproduct" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">India Data</a>
+                              <a routerLink="/searchproduct" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Search Data</a>
                             </div>
                         </div>
                     </li>
                     <li class="navitem">
-                        <div class="dropdown">
-                            <button class="dropbtn">Team</button>
-                            <div class="dropdown-content">
-                              <a routerLink="/allmembers" routerLinkActive="active">Members</a>
-                              <a routerLink="/addmember" routerLinkActive="active">Add Member</a>
-                            </div>
-                        </div>
+                        <a routerLink="/allmembers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Team</a>
                     </li>
                 </ul>
             </div>
