@@ -43,19 +43,26 @@
             <form #contactData="ngForm" (ngSubmit)="sendContact()" class="m-10 pd-10">
                 <div class="form-item">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" #name="ngModel" id="name" placeholder="Enter your name" required [(ngModel)]="contactModel.name">
+                    <input type="text" name="name" #name="ngModel" required [class.invalid]="name.invalid && name.touched" id="name" placeholder="Enter your name" required [(ngModel)]="contactModel.name">
+                    <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
                 </div>
                 <div class="form-item">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" #email="ngModel" id="email" placeholder="Enter your email" required [(ngModel)]="contactModel.email">
+                    <input type="email" name="email" #email="ngModel" required [class.invalid]="email.invalid && email.touched" id="email" placeholder="Enter your email" required [(ngModel)]="contactModel.email">
+                    <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
                 </div>
                 <div class="form-item">
                     <label for="phone">Phone Number:</label>
-                    <input type="tel" name="phone" #phone="ngModel" id="phone" placeholder="Enter your phone number" required [(ngModel)]="contactModel.phone">
-                </div>
+                    <input type="tel" name="phone" #phone="ngModel" required [class.invalid]="phone.invalid && phone.touched" pattern="\d{10}$" id="phone" placeholder="Enter your phone number" required [(ngModel)]="contactModel.phone">
+                    <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                        <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+                        <small class="text-danger" *ngIf="phone.errors.pattern">Phone number should be of 10 digits</small>
+                    </div>
+                    </div>
                 <div class="form-item">
                     <label for="message">Message:</label>
-                    <textarea name="message" #message="ngModel" id="message" cols="30" rows="10" placeholder="Enter your message" required [(ngModel)]="contactModel.message"></textarea>
+                    <textarea name="message" #message="ngModel" required [class.invalid]="message.invalid && message.touched" id="message" cols="30" rows="10" placeholder="Enter your message" required [(ngModel)]="contactModel.message"></textarea>
+                    <small class="text-danger" [class.d-none]="message.valid || message.untouched">Message is required</small>
                 </div>
                 <div [style.text-align]="'center'" class="form-item">
                     <button class="contact-btn" type="submit">Submit</button>

@@ -13,6 +13,7 @@ import { IndiaCovidDataService } from '../../services/india-covid-data.service';
 export class AddProductComponent implements OnInit {
 
   public fetchData=[] as any;
+  public statewise=[] as any;
 
   constructor(private _data: IndiaCovidDataService) {
     // this._data.sendData().subscribe(data => this.fetchData=data);
@@ -22,9 +23,10 @@ export class AddProductComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._data.sendData().subscribe(data => this.fetchData=data);
-    //this.fetchData=JSON.parse(this.fetchData);
-    //console.log(this.indiaData);
+    this._data.sendData().subscribe( data =>{
+      this.fetchData = data;
+      this.statewise = this.fetchData.statewise[0];
+    })
   }
 
 }

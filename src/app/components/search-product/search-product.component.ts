@@ -12,7 +12,7 @@ import { IndiaCovidDataService } from '../../services/india-covid-data.service';
   styleUrls: ['./search-product.component.css']
 })
 export class SearchProductComponent implements OnInit {
-
+  public searchData={searchvalue:""}
   public initial=false;
   public searEle="";
   public visibility=false;
@@ -88,10 +88,10 @@ export class SearchProductComponent implements OnInit {
     this.searEle="Enter State Name";
   }
 
-  searchClick(value: string){
+  searchClick(){
     this.initial=true;
     this.visibility=false;
-    value=value.toLowerCase();
+    let value=this.searchData.searchvalue.toLowerCase();
     //console.log(value);
     if(this.searEle==="Enter Country Name"){
       for(let country of this.countryData.Countries){
