@@ -13,7 +13,8 @@ import { ContactModel } from 'src/app/models/contact-model';
 })
 export class ContactService {
 
-  public _url="http://localhost:8000/";
+  // public _url="http://localhost:8000/";
+  public _url="/";
 
   constructor(private _http: HttpClient) { }
   dataToServer(contact: ContactModel){
