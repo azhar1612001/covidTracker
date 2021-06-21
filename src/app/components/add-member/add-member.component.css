@@ -27,3 +27,6 @@ button{
     color: #fff;
     font-weight: bolder;
 }
+button:hover{
+    opacity: 0.5;
+}
