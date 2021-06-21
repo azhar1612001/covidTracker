@@ -3,7 +3,8 @@
         <div *ngIf="visibility" class="searchform">
             <form #serachData="ngForm" (ngSubmit)="searchClick()">
                 <input type="text" [class.invalid]="searchvalue.invalid && searchvalue.touched" #searchvalue="ngModel" name="searchvalue" [placeholder]="searEle" required [(ngModel)]="searchData.searchvalue">
-                <button type="submit">Search</button>
+                <button type="submit">Search</button><br>
+                <small class="text-danger" [class.d-none]="searchvalue.valid || searchvalue.untouched">{{searEle | slice: 6}} is required</small>
             </form>
         </div>
         <div *ngIf="initial" class="searchres">
